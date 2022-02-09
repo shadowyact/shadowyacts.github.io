@@ -1,0 +1,2388 @@
+<script type="text/javascript">
+    function mt(el) {
+        el.bgColor = "#FFFFFF";
+    }
+    function mv(el) {
+        el.bgColor = "#CCCCCC";
+        el.title = '单击选择编辑';
+    }
+
+    function xzdm(a, b) {
+        form1.y_stfldm.value = a;
+        form1.y_cxy.value = b;
+        form1.xzbz.value = "1";
+        form1.submit();
+    }
+
+    function xzzxdm(a) {
+        form1.zxdcdm.value = a;
+        another = showModalDialog("zxdc.aspx?zxdcdm=" + a + "&xq=" + form1.xq_xz.value + "&qx_i=" + form1.qx_i.value + "&qx_u=" + form1.qx_u.value, "", "dialogheight:26;dialogwidth:26;help:no;status:no;resizable:yes");
+        form1.xzbz.value = "1";
+        form1.submit();
+    }
+    function load1() {
+        i = 0;
+            var pb = document.getElementById("tmflsm");
+            if ((pb.innerHTML.replace(/(\s*$)/g, "").length == 0)|(form1.xzbz.value == "1") ) {
+                i = 1;
+                var pb = document.getElementById("div0");
+                if (pb) {
+                    pb.style.visibility = "hidden";
+                    pb.style.display = "none";
+                }
+
+                var pb = document.getElementById("syb1");
+                if (pb) {
+                    pb.style.visibility = "hidden";
+                    pb.style.display = "none";
+                    div1.style.visibility = "visible";
+                }
+            }
+        j = (form1.divs.value) * 1;
+
+        while (i < form1.divs.value * 1) {
+            if (form1.databcxs.value == "1") {
+                var pb = document.getElementById("tjck");
+                pb.style.visibility = "hidden";
+                pb.style.display = "none";
+            }
+            i = i + 1;
+            var pb = document.getElementById("div" + i);
+            pb.style.visibility = "hidden";
+            pb.style.display = "none";
+        }
+        var pb = document.getElementById("xyb" + form1.divs.value);
+        if (pb) {
+            pb.style.visibility = "hidden";
+            pb.style.display = "none";
+        }
+        if (form1.wxbz.value == "") {
+            parent.document.getElementById("r_3_3").style.height = document.body.scrollHeight + 30;
+        }
+
+        if (form1.cw.value > "") {
+            alert(form1.cw.value);
+            form1.cw.value = "";
+        }
+        var pb = document.getElementById("tjck");
+        if (form1.xzbz.value == "1") {
+            alert("答对: " + form1.dds.value + "\r\n" + "答错: " + form1.dcs.value + "\r\n" + "得分: " + form1.marks.value);
+            if ((form1.qx_u.value == "1") | (form1.xh.value == "")) {
+                if (pb) {
+                    document.getElementById("tjck").value = "再来";
+                }
+            } else {
+                if (pb) {
+                    document.getElementById("tjck").value = "";
+                    document.getElementById("tjck").style.visibility = "hidden";
+                    document.getElementById("tjck").style.display = "none";
+                }
+            }
+        }
+        if (form1.xzbz.value == "2") {
+            if (pb) {
+                document.getElementById("tjck").value = "提交";
+            }
+        }
+        form1.xzbz.value = "";
+        if (form1.wxbz.value == "") {
+            parent.document.getElementById("r_3_3").style.height = document.body.scrollHeight + 30;
+        }
+    }
+
+    function tj() {
+        if (document.getElementById("tjck").value==""){return;}
+        if (document.getElementById("tjck").value == "提交") {
+            form1.xzbz.value = "1";
+        } else {
+            form1.xzbz.value = "2";
+        }
+        tj_xs.innerHTML = '<font color="#FF0000">正在提交...</font>';
+        form1.submit();
+    }
+
+    function down2(a) {
+        download.location = "/aldfdnf.aspx?lx=1&file=" + a;
+    }
+
+    function ckxyb(a) {
+        if ((a * 1) < (form1.divs.value * 1)) {
+            var pa = document.getElementById("div" + a);
+            var pb = document.getElementById("div" + (a * 1 + 1));
+            pa.style.visibility = "hidden";
+            pa.style.display = "none";
+            pb.style.visibility = "visible";
+            pb.style.display = "block";
+        }
+        if ((a * 1 + 1) == (form1.divs.value * 1)) {
+            if (form1.databcxs.value == "1") {
+                var pb = document.getElementById("tjck");
+                pb.style.visibility = "visible";
+                pb.style.display = "block";
+            }
+        }
+        if (form1.wxbz.value == "") {
+            parent.document.getElementById("r_3_3").style.height = document.body.scrollHeight + 30;
+            parent.document.body.scrollTop = 0;
+            document.body.scrollTop = 0;
+        }
+    }
+
+    function cksyb(a) {
+        if (a > 0) {
+            var pa = document.getElementById("div" + a);
+            var pb = document.getElementById("div" + (a * 1 - 1));
+            pa.style.visibility = "hidden";
+            pa.style.display = "none";
+            pb.style.visibility = "visible";
+            pb.style.display = "block";
+        }
+        if (form1.databcxs.value == "1") {
+            var pb = document.getElementById("tjck");
+            pb.style.visibility = "hidden";
+            pb.style.display = "none";
+        }
+        if (form1.wxbz.value == "") {
+            parent.document.getElementById("r_3_3").style.height = document.body.scrollHeight + 30;
+            parent.document.body.scrollTop = 0;
+        }
+    }
+
+    function fhsy() {
+        if (form1.wxbz.value == "") {
+            location = "/mobile/first.aspx";
+        } else {
+            location = "/mobile/default.aspx";
+        }
+    }
+
+</script> 
+<html>
+<head><title>
+	南京信息工程大学《学生手册》在线测试
+</title><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><meta name="MobileOptimized" content="320">
+<style type="text/css">
+.C1          { font-family: SimSun; font-size: 13px; color: #008000}
+.TD          { font-family: SimSun; font-size: 16px; color: #000080}
+.TDD         { color: #0000FF;height:16 }
+.TDP         { color: #000000;height:20 }
+.TD1         { border:1px solid #FFFF00; font-family: 宋体; font-size: 13px; border: 1px solid #FF3300; height:100;width:600;overflow:auto }
+.TD2         { font-family: SimSun; color: #0000FF; font-size: 13px; border: 1px solid #000000; overflow:auto   }
+.TD3         { border:1px solid #FFFFFF; font-family: SimSun; font-size: 13px; padding-left:0; padding-right:0; padding-top:1; padding-bottom:1; background-color:#FFFF00; color:#0000FF; height:15  }
+td           { font-family: SimSun; font-size: 16px }
+a:visited    { color: #FF0000; text-decoration: none }
+a:link       { color: #0000FF }
+</style>
+<style type="text/css">A {TEXT-DECORATION: none}
+table        { font-size: 13px; font-family: SimSun}
+TD.AA {border-top: 1px solid #000080; border-bottom: 1px solid #000080; }
+h1           { font-size: 13px; font-family: SimSun}
+</style>
+<style type="text/css">A:hover {color: #FF0000; text-decoration: none}
+</style>
+</head>
+<body style="margin-top:2;  margin-left:2;padding:0" onload="load1()">
+<div id="div0" align="center">
+	<table border="0" width="95%">
+<tr><td>
+<span id="tmflsm" maintainstate="false"></span>　
+<br/><br/><br/>
+</td></tr>
+<tr><td align="center"><img alt="" onclick="ckxyb('0')" border="0" src="/imagesal/xyb.gif"/></td></tr>
+</table>
+</div>
+
+
+<form name="form1" method="post" action="./dkkt.aspx?xq=2021-2022-1&amp;nd=2021&amp;km=tm_ks_jy&amp;tmfl=%25u5357%25u4eac%25u4fe1%25u606f%25u5de5%25u7a0b%25u5927%25u5b66%25u300a%25u5b66%25u751f%25u624b%25u518c%25u300b%25u5728%25u7ebf%25u6d4b%25u8bd5" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7E1C2F98" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="font-size: 16px; font-family: 宋体">
+  <tr>
+   <td class="content_right">
+    <table id="Mydatalist" cellspacing="1" cellpadding="0" border="0">
+	<tr>
+		<td>
+      <tr>
+      <td>
+      <div id="div1" style="visibility:hidden">
+          
+          
+          <p align="center"><b><font face="SimSun" size="3"><span id="Mydatalist__ctl0_tmxfl">310                                                                                                 </span></font></b></p>
+          <p align="center"><font face="SimSun" size="2" align="center"><span id="Mydatalist__ctl0_flsm"></span></font></b></p>
+
+   
+   
+   <p align="center"><b><span id="Mydatalist__ctl0_tmlx1">单选题</span></b></p>
+    <table id="Mydatalist__ctl0_Mydatalist1" cellspacing="1" cellpadding="0" border="0">
+			<tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          1.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl0_tm">实践创新学分是全日制本科生在校期间根据自己的特长和爱好，从事超出本专业培养方案要求且与所学专业相关的科研活动而取得具有一定创新意义的智力劳动成果或其他优秀成果，经核准认定后被授予的学分。从2013级开始，本科生在校期间必须至少获得（）个“实践创新学分”（民族特招生至少2个学分），未达到要求者不能毕业。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl0_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl0_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl0_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl0:xz" value="(A)2" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl0_xz_0">(A)2</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl0_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl0:xz" value="(B)3" /><label for="Mydatalist__ctl0_Mydatalist1__ctl0_xz_1">(B)3</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl0_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl0:xz" value="(C)4" /><label for="Mydatalist__ctl0_Mydatalist1__ctl0_xz_2"><span style='background-color:red;color:white'>(C)4</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl0_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl0:xz" value="(D)6" /><label for="Mydatalist__ctl0_Mydatalist1__ctl0_xz_3">(D)6</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          2.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl1_tm">关于补考和重修，以下说法不正确的是( )。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl1_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl1_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl1_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl1:xz" value="(A)课程首次考核不合格（通修课、集中性实践环节课程除外）的学生，可在学校规定的时间补考一次" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl1_xz_0">(A)课程首次考核不合格（通修课、集中性实践环节课程除外）的学生，可在学校规定的时间补考一次</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl1_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl1:xz" value="(B)无论何故不参加补考或补考不及格，必修课需参加重新学习" /><label for="Mydatalist__ctl0_Mydatalist1__ctl1_xz_1">(B)无论何故不参加补考或补考不及格，必修课需参加重新学习</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl1_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl1:xz" value="(C)选修课不及格的，可选修其他课程，或者跟班重新学习该门课程" /><label for="Mydatalist__ctl0_Mydatalist1__ctl1_xz_2">(C)选修课不及格的，可选修其他课程，或者跟班重新学习该门课程</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl1_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl1:xz" value="(D)取消考试资格的学生、首次考试旷考的学生可以参加补考" /><label for="Mydatalist__ctl0_Mydatalist1__ctl1_xz_3"><span style='background-color:red;color:white'>(D)取消考试资格的学生、首次考试旷考的学生可以参加补考</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          3.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl2_tm">辅修专业录取人数原则上低于（ ）人不开班</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl2_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl2_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl2_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl2:xz" value="(A)15" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl2_xz_0">(A)15</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl2_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl2:xz" value="(B)20" /><label for="Mydatalist__ctl0_Mydatalist1__ctl2_xz_1"><span style='background-color:red;color:white'>(B)20</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl2_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl2:xz" value="(C)25" /><label for="Mydatalist__ctl0_Mydatalist1__ctl2_xz_2">(C)25</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl2_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl2:xz" value="(D)30" /><label for="Mydatalist__ctl0_Mydatalist1__ctl2_xz_3">(D)30</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          4.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl3_tm">必修课累计不及格门数达到（ ）门，给予橙色预警</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl3_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl3_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl3_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl3:xz" value="(A)3" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl3_xz_0">(A)3</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl3_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl3:xz" value="(B)5" /><label for="Mydatalist__ctl0_Mydatalist1__ctl3_xz_1"><span style='background-color:red;color:white'>(B)5</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl3_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl3:xz" value="(C)8" /><label for="Mydatalist__ctl0_Mydatalist1__ctl3_xz_2">(C)8</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl3_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl3:xz" value="(D)10" /><label for="Mydatalist__ctl0_Mydatalist1__ctl3_xz_3">(D)10</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          5.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl4_tm">根据《南京信息工程大学家庭经济困难学生认定实施办法（修订）》，小李若想被认定为家庭经济特殊困难学生，除了满足量化测评分70以上（含）以上外，以下哪项条件符合认定要求（ ）</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl4_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl4_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl4_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl4:xz" value="(A)小李父母离异，现跟随母亲生活，且其母由于身体残疾的原因一直未再嫁人" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl4_xz_0">(A)小李父母离异，现跟随母亲生活，且其母由于身体残疾的原因一直未再嫁人</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl4_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl4:xz" value="(B)小李有兄弟姐妹三个，其中弟弟和妹妹都在读大一，难以支付在校学习和生活学费" /><label for="Mydatalist__ctl0_Mydatalist1__ctl4_xz_1">(B)小李有兄弟姐妹三个，其中弟弟和妹妹都在读大一，难以支付在校学习和生活学费</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl4_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl4:xz" value="(C)小李来自苏北农村，父母都是纯农户，家里耕地较少，每年只有2000多元的收入" /><label for="Mydatalist__ctl0_Mydatalist1__ctl4_xz_2">(C)小李来自苏北农村，父母都是纯农户，家里耕地较少，每年只有2000多元的收入</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl4_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl4:xz" value="(D)小李出生不久换上小儿麻痹症，导致双腿残疾，只能靠轮椅才能行走" /><label for="Mydatalist__ctl0_Mydatalist1__ctl4_xz_3"><span style='background-color:red;color:white'>(D)小李出生不久换上小儿麻痹症，导致双腿残疾，只能靠轮椅才能行走</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          6.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl5_tm">生源地信用助学贷款每生每年不超过( )元</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl5_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl5_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl5_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl5:xz" value="(A)6000" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl5_xz_0">(A)6000</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl5_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl5:xz" value="(B)8000" /><label for="Mydatalist__ctl0_Mydatalist1__ctl5_xz_1"><span style='background-color:red;color:white'>(B)8000</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl5_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl5:xz" value="(C)10000" /><label for="Mydatalist__ctl0_Mydatalist1__ctl5_xz_2">(C)10000</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl5_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl5:xz" value="(D)12000" /><label for="Mydatalist__ctl0_Mydatalist1__ctl5_xz_3">(D)12000</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          7.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl6_tm">学位论文、公开发表的研究成果存在抄袭、篡改、伪造等学术不端行为，视其情节轻重给予（ ）处分。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl6_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl6_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl6_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl6:xz" value="(A)记过" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl6_xz_0">(A)记过</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl6_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl6:xz" value="(B)留校察看或开除学籍" /><label for="Mydatalist__ctl0_Mydatalist1__ctl6_xz_1"><span style='background-color:red;color:white'>(B)留校察看或开除学籍</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl6_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl6:xz" value="(C)严重警告" /><label for="Mydatalist__ctl0_Mydatalist1__ctl6_xz_2">(C)严重警告</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl6_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl6:xz" value="(D)记过或留校察看" /><label for="Mydatalist__ctl0_Mydatalist1__ctl6_xz_3">(D)记过或留校察看</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          8.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl7_tm">评定学校奖学金时，依据（ ）评比决定学生获奖学金的等级</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl7_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl7_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl7_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl7:xz" value="(A)必修课程平均学分成绩，在同一年级同一专业的排名情况" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl7_xz_0">(A)必修课程平均学分成绩，在同一年级同一专业的排名情况</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl7_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl7:xz" value="(B)必修课程平均成绩，在同一年级同一专业的排名情况" /><label for="Mydatalist__ctl0_Mydatalist1__ctl7_xz_1">(B)必修课程平均成绩，在同一年级同一专业的排名情况</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl7_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl7:xz" value="(C)必修课程平均成绩与选修课程平均成绩之和，在同一年级同一专业的排名情况" /><label for="Mydatalist__ctl0_Mydatalist1__ctl7_xz_2">(C)必修课程平均成绩与选修课程平均成绩之和，在同一年级同一专业的排名情况</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl7_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl7:xz" value="(D)必修课程平均学分成绩与选修课程折算成绩之和，在同一年级同一专业的排名情况" /><label for="Mydatalist__ctl0_Mydatalist1__ctl7_xz_3"><span style='background-color:red;color:white'>(D)必修课程平均学分成绩与选修课程折算成绩之和，在同一年级同一专业的排名情况</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          9.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl8_tm">学生请假一周以上由( )批准，并报教务处和学生工作处备案。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl8_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl8_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl8_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl8:xz" value="(A)学院党政联席会议" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl8_xz_0">(A)学院党政联席会议</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl8_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl8:xz" value="(B)辅导员" /><label for="Mydatalist__ctl0_Mydatalist1__ctl8_xz_1">(B)辅导员</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl8_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl8:xz" value="(C)班主任" /><label for="Mydatalist__ctl0_Mydatalist1__ctl8_xz_2">(C)班主任</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl8_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl8:xz" value="(D)学院院长" /><label for="Mydatalist__ctl0_Mydatalist1__ctl8_xz_3">(D)学院院长</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          10.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl9_tm">某同学在校期间，未经有关部门批准擅自策划、组织游行活动，将受到的（ ）处分</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl9_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl9_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl9_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl9:xz" value="(A)开除学籍" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl9_xz_0">(A)开除学籍</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl9_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl9:xz" value="(B)批评教育" /><label for="Mydatalist__ctl0_Mydatalist1__ctl9_xz_1">(B)批评教育</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl9_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl9:xz" value="(C)警告处分" /><label for="Mydatalist__ctl0_Mydatalist1__ctl9_xz_2">(C)警告处分</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl9_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl9:xz" value="(D)通报批评" /><label for="Mydatalist__ctl0_Mydatalist1__ctl9_xz_3">(D)通报批评</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          11.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl10_tm">国家励志奖学金的奖励标准为每生每年( )元。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl10_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl10_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl10_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl10:xz" value="(A)3000" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl10_xz_0">(A)3000</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl10_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl10:xz" value="(B)5000" /><label for="Mydatalist__ctl0_Mydatalist1__ctl10_xz_1"><span style='background-color:red;color:white'>(B)5000</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl10_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl10:xz" value="(C)8000" /><label for="Mydatalist__ctl0_Mydatalist1__ctl10_xz_2">(C)8000</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl10_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl10:xz" value="(D)10000" /><label for="Mydatalist__ctl0_Mydatalist1__ctl10_xz_3">(D)10000</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          12.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl11_tm">我国高等教育要坚持以（ ）为根本</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl11_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl11_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl11_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl11:xz" value="(A)立德树人" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl11_xz_0">(A)立德树人</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl11_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl11:xz" value="(B)以生为本" /><label for="Mydatalist__ctl0_Mydatalist1__ctl11_xz_1">(B)以生为本</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl11_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl11:xz" value="(C)马克思主义" /><label for="Mydatalist__ctl0_Mydatalist1__ctl11_xz_2">(C)马克思主义</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl11_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl11:xz" value="(D)社会主义" /><label for="Mydatalist__ctl0_Mydatalist1__ctl11_xz_3">(D)社会主义</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          13.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl12_tm">以下对于校级“三好学生”评审要求的描述中，错误的是（ ）</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl12_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl12_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl12_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl12:xz" value="(A)自觉践行社会主义核心价值观，具有坚定正确的政治方向、良好的道德品质、模范执行学校的规章制度" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl12_xz_0">(A)自觉践行社会主义核心价值观，具有坚定正确的政治方向、良好的道德品质、模范执行学校的规章制度</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl12_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl12:xz" value="(B)学习刻苦，学习成绩优良，当学年获得国家奖学金、国家励志奖学金或学校奖学金" /><label for="Mydatalist__ctl0_Mydatalist1__ctl12_xz_1">(B)学习刻苦，学习成绩优良，当学年获得国家奖学金、国家励志奖学金或学校奖学金</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl12_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl12:xz" value="(C)当学年综合测评位列同一年级同一专业排名的前60％" /><label for="Mydatalist__ctl0_Mydatalist1__ctl12_xz_2"><span style='background-color:red;color:white'>(C)当学年综合测评位列同一年级同一专业排名的前60％</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl12_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl12:xz" value="(D)积极参加体育锻炼和各项课外活动，达到《国家学生体质健康标准》" /><label for="Mydatalist__ctl0_Mydatalist1__ctl12_xz_3">(D)积极参加体育锻炼和各项课外活动，达到《国家学生体质健康标准》</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          14.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl13_tm">国家奖学金总的推荐候选名额不超过上级下达名额的（ ）倍。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl13_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl13_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl13_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl13:xz" value="(A)2" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl13_xz_0">(A)2</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl13_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl13:xz" value="(B)1.5" /><label for="Mydatalist__ctl0_Mydatalist1__ctl13_xz_1"><span style='background-color:red;color:white'>(B)1.5</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl13_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl13:xz" value="(C)0.5" /><label for="Mydatalist__ctl0_Mydatalist1__ctl13_xz_2">(C)0.5</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl13_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl13:xz" value="(D)1" /><label for="Mydatalist__ctl0_Mydatalist1__ctl13_xz_3">(D)1</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          15.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl14_tm">在某次四级考试中，王同学带手机参加考试，考试过程中，王同学接收到由考场外发来的与试题相关的短信，被监考老师发现后上报学校，根据学校违纪处分规定，应给予王同学的处分是（ ）</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl14_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl14_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl14_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl14:xz" value="(A)记过" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl14_xz_0">(A)记过</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl14_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl14:xz" value="(B)警告" /><label for="Mydatalist__ctl0_Mydatalist1__ctl14_xz_1">(B)警告</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl14_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl14:xz" value="(C)严重警告" /><label for="Mydatalist__ctl0_Mydatalist1__ctl14_xz_2">(C)严重警告</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl14_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl14:xz" value="(D)留校察看或开除学籍" /><label for="Mydatalist__ctl0_Mydatalist1__ctl14_xz_3"><span style='background-color:red;color:white'>(D)留校察看或开除学籍</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          16.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl15_tm">受警告、严重警告者，自处分发文之日起至申请解除处分时间应满（ ）年，但对毕业班学生受警告、严重警告处分后改正错误表现突出者可以缩短到满（ ）个月。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl15_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl15_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl15_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl15:xz" value="(A)半、三" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl15_xz_0">(A)半、三</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl15_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl15:xz" value="(B)半、两" /><label for="Mydatalist__ctl0_Mydatalist1__ctl15_xz_1">(B)半、两</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl15_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl15:xz" value="(C)一、六" /><label for="Mydatalist__ctl0_Mydatalist1__ctl15_xz_2">(C)一、六</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl15_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl15:xz" value="(D)一、三" /><label for="Mydatalist__ctl0_Mydatalist1__ctl15_xz_3">(D)一、三</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          17.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl16_tm">上一学期有（ ）门必修课补考后仍不及格，应予黄色预警</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl16_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl16_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl16_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl16:xz" value="(A)1" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl16_xz_0">(A)1</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl16_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl16:xz" value="(B)2" /><label for="Mydatalist__ctl0_Mydatalist1__ctl16_xz_1">(B)2</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl16_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl16:xz" value="(C)3" /><label for="Mydatalist__ctl0_Mydatalist1__ctl16_xz_2">(C)3</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl16_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl16:xz" value="(D)4" /><label for="Mydatalist__ctl0_Mydatalist1__ctl16_xz_3">(D)4</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          18.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl17_tm">必修课累计不及格门数达到（ ）门，应予黄色预警</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl17_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl17_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl17_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl17:xz" value="(A)1" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl17_xz_0">(A)1</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl17_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl17:xz" value="(B)2" /><label for="Mydatalist__ctl0_Mydatalist1__ctl17_xz_1">(B)2</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl17_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl17:xz" value="(C)3" /><label for="Mydatalist__ctl0_Mydatalist1__ctl17_xz_2"><span style='background-color:red;color:white'>(C)3</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl17_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl17:xz" value="(D)4" /><label for="Mydatalist__ctl0_Mydatalist1__ctl17_xz_3">(D)4</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          19.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl18_tm">受（ ）处分的学生，不得申请解除处分。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl18_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl18_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl18_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl18:xz" value="(A)严重警告" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl18_xz_0">(A)严重警告</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl18_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl18:xz" value="(B)记过" /><label for="Mydatalist__ctl0_Mydatalist1__ctl18_xz_1">(B)记过</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl18_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl18:xz" value="(C)开除学籍" /><label for="Mydatalist__ctl0_Mydatalist1__ctl18_xz_2"><span style='background-color:red;color:white'>(C)开除学籍</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl18_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl18:xz" value="(D)留校察看" /><label for="Mydatalist__ctl0_Mydatalist1__ctl18_xz_3">(D)留校察看</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          20.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl19_tm">大学生要确立在（ ）领导下走社会主义道路、实现中华民族伟大复兴的共同理想和坚定信念。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl19_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl19_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl19_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl19:xz" value="(A)中国共产党" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl19_xz_0">(A)中国共产党</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl19_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl19:xz" value="(B)中央人民政府" /><label for="Mydatalist__ctl0_Mydatalist1__ctl19_xz_1">(B)中央人民政府</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl19_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl19:xz" value="(C)习近平主席" /><label for="Mydatalist__ctl0_Mydatalist1__ctl19_xz_2">(C)习近平主席</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl19_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl19:xz" value="(D)人大常委会" /><label for="Mydatalist__ctl0_Mydatalist1__ctl19_xz_3">(D)人大常委会</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          21.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl20_tm">每学期开学时，学生应持本人学生证到所在学院办理注册手续。因故不能如期注册者，须及时向学院请假，批准后履行暂缓注册手续。未经批准逾期( )周以上不注册且无正当事由者，视为放弃学籍。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl20_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl20_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl20_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl20:xz" value="(A)1" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl20_xz_0">(A)1</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl20_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl20:xz" value="(B)3" /><label for="Mydatalist__ctl0_Mydatalist1__ctl20_xz_1">(B)3</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl20_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl20:xz" value="(C)4" /><label for="Mydatalist__ctl0_Mydatalist1__ctl20_xz_2">(C)4</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl20_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl20:xz" value="(D)2" /><label for="Mydatalist__ctl0_Mydatalist1__ctl20_xz_3"><span style='background-color:red;color:white'>(D)2</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          22.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl21_tm">对接近留级、退学规定的标准以及平均学分绩点＜（ ）的同学，学校将予以学业预警。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl21_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl21_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl21_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl21:xz" value="(A)1.5" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl21_xz_0">(A)1.5</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl21_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl21:xz" value="(B)1.8" /><label for="Mydatalist__ctl0_Mydatalist1__ctl21_xz_1">(B)1.8</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl21_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl21:xz" value="(C)2.0" /><label for="Mydatalist__ctl0_Mydatalist1__ctl21_xz_2"><span style='background-color:red;color:white'>(C)2.0</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl21_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl21:xz" value="(D)2.5" /><label for="Mydatalist__ctl0_Mydatalist1__ctl21_xz_3">(D)2.5</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          23.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl22_tm">长望助学金特等资助的申请者应当符合下列条件（ ）</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl22_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl22_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl22_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl22:xz" value="(A)近期遭遇突发事件损失较大或者患疾病花费了大额医疗费用，对学生的学习和生活已经造成严重的影响，急需帮助" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl22_xz_0">(A)近期遭遇突发事件损失较大或者患疾病花费了大额医疗费用，对学生的学习和生活已经造成严重的影响，急需帮助</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl22_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl22:xz" value="(B)近期遭遇重大突发事件损失很大或者患较大疾病花费了高额医疗费用，对学生的学习和生活已经造成严重的影响，急需帮助" /><label for="Mydatalist__ctl0_Mydatalist1__ctl22_xz_1">(B)近期遭遇重大突发事件损失很大或者患较大疾病花费了高额医疗费用，对学生的学习和生活已经造成严重的影响，急需帮助</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl22_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl22:xz" value="(C)近期遭遇特别重大突发事件损失巨大或者患重大疾病花费了巨额医疗费用，对学生的学习和生活造成了特别严重的影响，急需帮助" /><label for="Mydatalist__ctl0_Mydatalist1__ctl22_xz_2"><span style='background-color:red;color:white'>(C)近期遭遇特别重大突发事件损失巨大或者患重大疾病花费了巨额医疗费用，对学生的学习和生活造成了特别严重的影响，急需帮助</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl22_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl22:xz" value="(D)被认定为贫困生" /><label for="Mydatalist__ctl0_Mydatalist1__ctl22_xz_3">(D)被认定为贫困生</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          24.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl23_tm">在校生违反校纪校规受到处分者将在综合素质测评“奖励与惩处”中予以扣分，其中受警告处分者扣（ ）分，受严重警告处分者扣（ ）分，受记过处分者扣（ ）分，受留校察看处分者扣（ ）分。( )</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl23_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl23_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl23_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl23:xz" value="(A)1、2、3、4" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl23_xz_0">(A)1、2、3、4</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl23_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl23:xz" value="(B)1、1.5、2、2.5" /><label for="Mydatalist__ctl0_Mydatalist1__ctl23_xz_1">(B)1、1.5、2、2.5</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl23_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl23:xz" value="(C)2、2.5、3、3.5" /><label for="Mydatalist__ctl0_Mydatalist1__ctl23_xz_2"><span style='background-color:red;color:white'>(C)2、2.5、3、3.5</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl23_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl23:xz" value="(D)1.5、2、2.5、3" /><label for="Mydatalist__ctl0_Mydatalist1__ctl23_xz_3">(D)1.5、2、2.5、3</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          25.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl24_tm">某同学吸食注射毒品，视情节轻重给予（ ）处分。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl24_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl24_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl24_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl24:xz" value="(A)警告或严重警告" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl24_xz_0">(A)警告或严重警告</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl24_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl24:xz" value="(B)严重警告或记过" /><label for="Mydatalist__ctl0_Mydatalist1__ctl24_xz_1">(B)严重警告或记过</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl24_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl24:xz" value="(C)记过或留校察看" /><label for="Mydatalist__ctl0_Mydatalist1__ctl24_xz_2"><span style='background-color:red;color:white'>(C)记过或留校察看</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl24_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl24:xz" value="(D)严重警告" /><label for="Mydatalist__ctl0_Mydatalist1__ctl24_xz_3">(D)严重警告</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          26.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl25_tm">因身体原因需要办理校外住宿的，需要提供经校综合门诊部确认的（ ）诊断证明。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl25_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl25_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl25_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl25:xz" value="(A)县级以上医院" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl25_xz_0">(A)县级以上医院</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl25_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl25:xz" value="(B)市级以上医院" /><label for="Mydatalist__ctl0_Mydatalist1__ctl25_xz_1">(B)市级以上医院</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl25_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl25:xz" value="(C)社区医院" /><label for="Mydatalist__ctl0_Mydatalist1__ctl25_xz_2">(C)社区医院</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl25_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl25:xz" value="(D)街道卫生所" /><label for="Mydatalist__ctl0_Mydatalist1__ctl25_xz_3">(D)街道卫生所</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          27.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl26_tm">对违纪后拒不承认错误、态度恶劣者，相关学院或职能部门可以提出( )处分的建议，报校学生违纪处理委员会审批。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl26_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl26_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl26_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl26:xz" value="(A)警告" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl26_xz_0">(A)警告</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl26_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl26:xz" value="(B)严重警告" /><label for="Mydatalist__ctl0_Mydatalist1__ctl26_xz_1">(B)严重警告</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl26_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl26:xz" value="(C)记过" /><label for="Mydatalist__ctl0_Mydatalist1__ctl26_xz_2"><span style='background-color:red;color:white'>(C)记过</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl26_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl26:xz" value="(D)开除学籍" /><label for="Mydatalist__ctl0_Mydatalist1__ctl26_xz_3">(D)开除学籍</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          28.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl27_tm">关于我校生源地信用助学贷款，以下说法中错误的是 ( )</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl27_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl27_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl27_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl27:xz" value="(A)生源地信用助学贷款是国家开发银行省级分行委托县（市、区）农村信用合作联社、农村商业银行、农村合作银行，向家庭经济困难的普通高校新生和在校生发放的" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl27_xz_0">(A)生源地信用助学贷款是国家开发银行省级分行委托县（市、区）农村信用合作联社、农村商业银行、农村合作银行，向家庭经济困难的普通高校新生和在校生发放的</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl27_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl27:xz" value="(B)我校生源地信用助学贷款的常设工作机构为学生资助管理中心" /><label for="Mydatalist__ctl0_Mydatalist1__ctl27_xz_1">(B)我校生源地信用助学贷款的常设工作机构为学生资助管理中心</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl27_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl27:xz" value="(C)生源地信用助学贷款按年度申请、审批和发放。根据贷款学生家庭经济困难程度确定贷款额度，每生每学年不超过10000元" /><label for="Mydatalist__ctl0_Mydatalist1__ctl27_xz_2"><span style='background-color:red;color:white'>(C)生源地信用助学贷款按年度申请、审批和发放。根据贷款学生家庭经济困难程度确定贷款额度，每生每学年不超过10000元</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl27_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl27:xz" value="(D)生源地信用助学贷款是由学生在入学前户籍所在地办理、以借款人信用作担保的助学贷款" /><label for="Mydatalist__ctl0_Mydatalist1__ctl27_xz_3">(D)生源地信用助学贷款是由学生在入学前户籍所在地办理、以借款人信用作担保的助学贷款</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          29.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl28_tm">我国高等教育要以（ ）为核心</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl28_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl28_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl28_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl28:xz" value="(A)集体主义教育" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl28_xz_0">(A)集体主义教育</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl28_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl28:xz" value="(B)爱国主义教育" /><label for="Mydatalist__ctl0_Mydatalist1__ctl28_xz_1">(B)爱国主义教育</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl28_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl28:xz" value="(C)理想信念教育" /><label for="Mydatalist__ctl0_Mydatalist1__ctl28_xz_2"><span style='background-color:red;color:white'>(C)理想信念教育</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl28_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl28:xz" value="(D)社会主义核心价值观教育" /><label for="Mydatalist__ctl0_Mydatalist1__ctl28_xz_3">(D)社会主义核心价值观教育</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          30.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl29_tm">生源地信用助学贷款按照( )申请、审批和发放。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl29_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl29_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl29_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl29:xz" value="(A)年度" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl29_xz_0">(A)年度</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl29_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl29:xz" value="(B)学期" /><label for="Mydatalist__ctl0_Mydatalist1__ctl29_xz_1">(B)学期</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl29_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl29:xz" value="(C)月份" /><label for="Mydatalist__ctl0_Mydatalist1__ctl29_xz_2">(C)月份</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl29_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl29:xz" value="(D)季度" /><label for="Mydatalist__ctl0_Mydatalist1__ctl29_xz_3">(D)季度</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          31.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl30_tm">身心状况不适宜在校学习的，经学校指定的二级甲等（含）以上医院或者学校综合门诊部诊断，需要在家休养，并在短期治疗后可达到入学标准，由其本人提交书面申请和医院诊断证明材料，经学校批准后，为其保留入学资格( )年。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl30_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl30_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl30_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl30:xz" value="(A)1" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl30_xz_0">(A)1</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl30_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl30:xz" value="(B)3" /><label for="Mydatalist__ctl0_Mydatalist1__ctl30_xz_1">(B)3</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl30_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl30:xz" value="(C)4" /><label for="Mydatalist__ctl0_Mydatalist1__ctl30_xz_2">(C)4</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl30_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl30:xz" value="(D)2" /><label for="Mydatalist__ctl0_Mydatalist1__ctl30_xz_3">(D)2</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          32.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl31_tm">学校成立学生申诉处理委员会，受理学生申诉事宜，办公室设在（ ）</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl31_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl31_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl31_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl31:xz" value="(A)监察处" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl31_xz_0">(A)监察处</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl31_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl31:xz" value="(B)教务处" /><label for="Mydatalist__ctl0_Mydatalist1__ctl31_xz_1">(B)教务处</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl31_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl31:xz" value="(C)校长办公室" /><label for="Mydatalist__ctl0_Mydatalist1__ctl31_xz_2">(C)校长办公室</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl31_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl31:xz" value="(D)学工处" /><label for="Mydatalist__ctl0_Mydatalist1__ctl31_xz_3">(D)学工处</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          33.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl32_tm">国家奖学金奖励标准为每人每年（ ）元。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl32_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl32_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl32_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl32:xz" value="(A)8000" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl32_xz_0">(A)8000</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl32_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl32:xz" value="(B)5000" /><label for="Mydatalist__ctl0_Mydatalist1__ctl32_xz_1">(B)5000</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl32_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl32:xz" value="(C)10000" /><label for="Mydatalist__ctl0_Mydatalist1__ctl32_xz_2">(C)10000</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl32_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl32:xz" value="(D)15000" /><label for="Mydatalist__ctl0_Mydatalist1__ctl32_xz_3">(D)15000</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          34.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl33_tm">具有下列（ ）情形者，不授予学士学位。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl33_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl33_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl33_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl33:xz" value="(A)在校期间累计仅受一次记过处分，经教育表现良好，其他方面均符合学士学位条件" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl33_xz_0">(A)在校期间累计仅受一次记过处分，经教育表现良好，其他方面均符合学士学位条件</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl33_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl33:xz" value="(B)必修课平均学分绩点>2.0" /><label for="Mydatalist__ctl0_Mydatalist1__ctl33_xz_1">(B)必修课平均学分绩点>2.0</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl33_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl33:xz" value="(C)理工科学生获得二级或二级以上计算机等级考试合格证书" /><label for="Mydatalist__ctl0_Mydatalist1__ctl33_xz_2">(C)理工科学生获得二级或二级以上计算机等级考试合格证书</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl33_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl33:xz" value="(D)毕业设计成绩不合格" /><label for="Mydatalist__ctl0_Mydatalist1__ctl33_xz_3"><span style='background-color:red;color:white'>(D)毕业设计成绩不合格</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          35.
+          <span id="Mydatalist__ctl0_Mydatalist1__ctl34_tm">学生被取消参加必修课程考试资格后，学生该门课程成绩应该注明“无资格”，必须参加( )</span>(分值:<span id="Mydatalist__ctl0_Mydatalist1__ctl34_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist1__ctl34_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl34_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl34:xz" value="(A)重新学习" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist1__ctl34_xz_0">(A)重新学习</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl34_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl34:xz" value="(B)改选" /><label for="Mydatalist__ctl0_Mydatalist1__ctl34_xz_1">(B)改选</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl34_xz_2" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl34:xz" value="(C)补选" /><label for="Mydatalist__ctl0_Mydatalist1__ctl34_xz_2">(C)补选</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist1__ctl34_xz_3" type="radio" name="Mydatalist:_ctl0:Mydatalist1:_ctl34:xz" value="(D)补考" /><label for="Mydatalist__ctl0_Mydatalist1__ctl34_xz_3">(D)补考</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr>
+		</table>          
+    <br/>
+
+   <p align="center"><b><span id="Mydatalist__ctl0_tmlx2">多选题</span></b></p>
+    <table id="Mydatalist__ctl0_Mydatalist2" cellspacing="1" cellpadding="0" border="0">
+			<tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          1.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl0_tm">下列情况可予以留级的有( )</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl0_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl0_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl0_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl0:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl0_xz_0"><span style='background-color:red;color:white'>(A)一年级结束所获学分＜30.0</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl0_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl0:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl0_xz_1"><span style='background-color:red;color:white'>(B)二年级结束所获学分＜70.0</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl0_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl0:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl0_xz_2"><span style='background-color:red;color:white'>(C)三年级结束所获学分＜120.0</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl0_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl0:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl0_xz_3">(D)一年级结束所获学分＜40.0</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          2.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl1_tm">学校对学生的处分，应当做到( )、处分适当</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl1_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl1_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl1_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl1:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl1_xz_0"><span style='background-color:red;color:white'>(A)证据充分</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl1_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl1:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl1_xz_1"><span style='background-color:red;color:white'>(B)依据明确</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl1_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl1:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl1_xz_2"><span style='background-color:red;color:white'>(C)定性准确</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl1_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl1:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl1_xz_3"><span style='background-color:red;color:white'>(D)程序正当</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          3.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl2_tm">对学生思想品德的考核和鉴定，可采取的形式有（ ）</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl2_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl2_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl2_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl2:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl2_xz_0"><span style='background-color:red;color:white'>(A)个人小结</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl2_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl2:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl2_xz_1">(B)考试</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl2_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl2:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl2_xz_2"><span style='background-color:red;color:white'>(C)师生民主评议</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl2_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl2:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl2_xz_3">(D)考察</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          4.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl3_tm">在校家庭经济困难学生申请生源地贷款时需要提供以下哪些证明</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl3_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl3_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl3_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl3:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl3_xz_0"><span style='background-color:red;color:white'>(A)高校贷款证明</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl3_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl3:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl3_xz_1"><span style='background-color:red;color:white'>(B)学生证</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl3_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl3:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl3_xz_2"><span style='background-color:red;color:white'>(C)身份证</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl3_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl3:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl3_xz_3">(D)录取通知书</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          5.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl4_tm">对出现下列情况之一的学生，已享受资助的，视情况追回资助资金；情节严重的，依据学校有关规定严肃处理</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl4_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl4_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl4_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl4:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl4_xz_0"><span style='background-color:red;color:white'>(A)弄虚作假，骗取困难生资格和学校资助资金</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl4_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl4:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl4_xz_1"><span style='background-color:red;color:white'>(B)违反校纪校规，收到学校警告（含警告）以上处分</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl4_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl4:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl4_xz_2"><span style='background-color:red;color:white'>(C)未将所获资助资金用于在校学习、生活的必要支出而随意挥霍浪费、购买高档奢侈品</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl4_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl4:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl4_xz_3"><span style='background-color:red;color:white'>(D)经常出入校外网吧和娱乐场所，沉迷网络</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          6.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl5_tm">关于学籍管理，下列( )说法是不正确的</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl5_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl5_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl5_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl5:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl5_xz_0"><span style='background-color:red;color:white'>(A)身心状况不适宜在校学习的，经学校指定的二级甲等（含）以上医院或者学校综合门诊部诊断，需要在家休养，并在短期治疗后可达到入学标准，由其本人提交书面申请和医院诊断证明材料，经学校批准后，为其保留入学资格2年</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl5_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl5:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl5_xz_1"><span style='background-color:red;color:white'>(B)应征参加中国人民解放军（含中国人民武装警察部队）的，由新生本人提交书面申请和入伍相关证明材料，经学校批准后，为其保留入学资格至退役后1年</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl5_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl5:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl5_xz_2">(C)新生保留入学资格期间不具有学籍，不享受在校生待遇</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl5_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl5:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl5_xz_3">(D)新生可在入学当年十月份登录中国高等教育学生信息网进行学籍自查，核实本人学籍是否注册、信息是否准确等</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          7.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl6_tm">2017年10月南京信息工程大学设置了学生校长助理，这一举措反映了学生对学校与学生权益相关事务享有（ ）</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl6_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl6_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl6_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl6:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl6_xz_0"><span style='background-color:red;color:white'>(A)知情权</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl6_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl6:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl6_xz_1"><span style='background-color:red;color:white'>(B)参与权</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl6_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl6:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl6_xz_2"><span style='background-color:red;color:white'>(C)表达权</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl6_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl6:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl6_xz_3"><span style='background-color:red;color:white'>(D)监督权</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          8.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl7_tm">高校实施学生管理，鼓励和支持学生实行（ ）</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl7_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl7_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl7_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl7:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl7_xz_0"><span style='background-color:red;color:white'>(A)自我管理</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl7_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl7:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl7_xz_1"><span style='background-color:red;color:white'>(B)自我服务</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl7_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl7:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl7_xz_2"><span style='background-color:red;color:white'>(C)自我教育</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl7_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl7:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl7_xz_3"><span style='background-color:red;color:white'>(D)自我监督</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          9.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl8_tm">因（ ）等终止学业的学生，在学年初开学一月内经批准的，免缴该学年专业学费，超过一月的免缴该学年50%的专业学费。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl8_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl8_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl8_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl8:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl8_xz_0"><span style='background-color:red;color:white'>(A)退学</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl8_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl8:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl8_xz_1"><span style='background-color:red;color:white'>(B)转学</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl8_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl8:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl8_xz_2"><span style='background-color:red;color:white'>(C)出国</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl8_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl8:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl8_xz_3">(D)休学</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          10.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl9_tm">当代大学生要明礼修身，团结友爱，具体应做到（ ）</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl9_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl9_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl9_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl9:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl9_xz_0"><span style='background-color:red;color:white'>(A)遵守社会公德，男女交往文明</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl9_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl9:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl9_xz_1"><span style='background-color:red;color:white'>(B)关心集体，爱护公物，热心公益</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl9_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl9:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl9_xz_2"><span style='background-color:red;color:white'>(C)尊敬师长，友爱同学，团结合作</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl9_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl9:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl9_xz_3"><span style='background-color:red;color:white'>(D)仪表整洁，待人礼貌，豁达宽容</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          11.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl10_tm">若某同学在校期间受到治安管理处罚的行为，将给予（ ）处分</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl10_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl10_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl10_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl10:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl10_xz_0">(A)严重警告</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl10_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl10:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl10_xz_1"><span style='background-color:red;color:white'>(B)记过</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl10_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl10:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl10_xz_2"><span style='background-color:red;color:white'>(C)留校察看</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl10_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl10:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl10_xz_3"><span style='background-color:red;color:white'>(D)开除学籍</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          12.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl11_tm">学生小李以前家住郑州，大二时搬家到合肥，下列关于他火车票优惠卡的办理的说法正确的是（ ）</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl11_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl11_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl11_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl11:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl11_xz_0"><span style='background-color:red;color:white'>(A)小李可以申请修改优惠区间到合肥</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl11_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl11:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl11_xz_1">(B)乘车区间一般不可改动，小李不能申请修改乘车区间</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl11_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl11:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl11_xz_2"><span style='background-color:red;color:white'>(C)小李需要写明具体情况才能申请修改</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl11_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl11:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl11_xz_3"><span style='background-color:red;color:white'>(D)小李需要出具家长所在单位的证明才能申请修改</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          13.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl12_tm">以下对“绿色通道”描述正确的是</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl12_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl12_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl12_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl12:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl12_xz_0"><span style='background-color:red;color:white'>(A)学校对家庭经济困难新生报到时实行“绿色通道”</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl12_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl12:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl12_xz_1"><span style='background-color:red;color:white'>(B)通过“绿色通道”入学的学生可以先办理报到手续、安排住宿</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl12_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl12:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl12_xz_2"><span style='background-color:red;color:white'>(C)对个别经济特别困难、无法维持正常生活的新生暂时先发放生活用品和教材</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl12_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl12:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl12_xz_3"><span style='background-color:red;color:white'>(D)对通过“绿色通道”入学的学生给予一定的困难补助</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          14.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl13_tm">长望助学金理事会每学年受理二次集中申请，分别在每年的</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl13_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl13_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl13_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl13:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl13_xz_0">(A)一月</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl13_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl13:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl13_xz_1">(B)二月</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl13_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl13:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl13_xz_2"><span style='background-color:red;color:white'>(C)四月</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl13_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl13:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl13_xz_3"><span style='background-color:red;color:white'>(D)九月</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          15.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl14_tm">属于学费减免对象的学生申请学费减免应当符合下列条件</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl14_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl14_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl14_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl14:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl14_xz_0"><span style='background-color:red;color:white'>(A)诚实守信，道德品质优良</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl14_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl14:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl14_xz_1"><span style='background-color:red;color:white'>(B)生活简朴，无铺张浪费等不良生活习惯</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl14_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl14:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl14_xz_2"><span style='background-color:red;color:white'>(C)已被认定为家庭经济特殊困难的学生</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl14_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl14:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl14_xz_3"><span style='background-color:red;color:white'>(D)遵守宪法和法律，遵守学校规章制度</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          16.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl15_tm">王同学在校期间累计仅受一次记过处分，之后表现良好，经所在学院核实后的学士学位申请流程包括</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl15_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl15_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl15_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl15:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl15_xz_0">(A)辅导员推荐</label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl15_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl15:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl15_xz_1"><span style='background-color:red;color:white'>(B)学院学位评定分委员会推荐</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl15_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl15:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl15_xz_2"><span style='background-color:red;color:white'>(C)教务处审查，主管校长同意</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl15_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl15:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl15_xz_3"><span style='background-color:red;color:white'>(D)校学位评定委员会讨论</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          17.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl16_tm">下列属于我校申请减免学生类型的是</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl16_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl16_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl16_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl16:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl16_xz_0"><span style='background-color:red;color:white'>(A)来自城乡低保家庭的小李</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl16_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl16:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl16_xz_1"><span style='background-color:red;color:white'>(B)来自四川汶川的孤儿小张</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl16_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl16:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl16_xz_2"><span style='background-color:red;color:white'>(C)持有残疾人证的女孩小王</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl16_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl16:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl16_xz_3"><span style='background-color:red;color:white'>(D)纳入“建档立卡”的小赵</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          18.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl17_tm">下列情形，不具备评定学校奖学金资格的是</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl17_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl17_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl17_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl17:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl17_xz_0"><span style='background-color:red;color:white'>(A)未注册</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl17_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl17:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl17_xz_1"><span style='background-color:red;color:white'>(B)违反国家法律、校纪校规受到学校处分或留校察看未解除或违反国家法律、校纪校规，正在调查处理之中</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl17_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl17:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl17_xz_2"><span style='background-color:red;color:white'>(C)必修课程有不及格科目</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl17_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl17:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl17_xz_3"><span style='background-color:red;color:white'>(D)体质测试不及格</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          19.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl18_tm">小李同学什么情况下会被红色预警</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl18_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl18_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl18_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl18:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl18_xz_0"><span style='background-color:red;color:white'>(A)上一学期有三门必修课补考后仍不及格</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl18_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl18:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl18_xz_1"><span style='background-color:red;color:white'>(B)上一学期所获学分＜10.0</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl18_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl18:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl18_xz_2"><span style='background-color:red;color:white'>(C)必修课平均学分绩点＜2.0（民族特招生、高水平运动员＜1.5）</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl18_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl18:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl18_xz_3"><span style='background-color:red;color:white'>(D)三年级结束，非计算机专业，文科类学生未获计算机一级合格证书，理工科学生未获计算机二级合格证书（民族特招生、高水平运动员未获计算机一级合格证书）</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          20.
+          <span id="Mydatalist__ctl0_Mydatalist2__ctl19_tm">关于我校生源地信用助学贷款，以下说法中正确的是</span>(分值:<span id="Mydatalist__ctl0_Mydatalist2__ctl19_marks">2</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist2__ctl19_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl19_xz_0" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl19:xz:0" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist2__ctl19_xz_0"><span style='background-color:red;color:white'>(A)生源地信用助学贷款利率执行人民币同期同档次贷款基准利率，不上浮</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl19_xz_1" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl19:xz:1" /><label for="Mydatalist__ctl0_Mydatalist2__ctl19_xz_1"><span style='background-color:red;color:white'>(B)学生在校期间不支付利息，毕业当年9月1日起全额自付利息</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl19_xz_2" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl19:xz:2" /><label for="Mydatalist__ctl0_Mydatalist2__ctl19_xz_2"><span style='background-color:red;color:white'>(C)本息一年结算一次，提前还款的除应付本息外不加收其他费用</span></label></td>
+					</tr><tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist2__ctl19_xz_3" type="checkbox" name="Mydatalist:_ctl0:Mydatalist2:_ctl19:xz:3" /><label for="Mydatalist__ctl0_Mydatalist2__ctl19_xz_3"><span style='background-color:red;color:white'>(D)贷款学生及家长应严格根据借款合同的约定履行还本付息义务</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr>
+		</table>         
+    <br/> 
+   <p align="center"><b><span id="Mydatalist__ctl0_tmlx3">判断题</span></b></p>
+    <table id="Mydatalist__ctl0_Mydatalist3" cellspacing="1" cellpadding="0" border="0">
+			<tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          1.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl0_tm">受警告或严重警告处分，解除处分需学校批准</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl0_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl0_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl0_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl0:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl0_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl0_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl0:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl0_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          2.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl1_tm">转专业的学生，根据所学基础决定是否转入下一年级学习或跟同年级学习，但须修满转入专业培养方案规定的全部学分，方可毕业。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl1_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl1_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl1_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl1:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl1_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl1_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl1:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl1_xz_1">否</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          3.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl2_tm">学生杨某在大二上学期时办理了休学手续，这期间他仍然可以享受评奖评优等在校生待遇。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl2_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl2_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl2_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl2:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl2_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl2_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl2:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl2_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          4.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl3_tm">“确系他人胁迫或诱骗,并能主动揭发他人违纪行为”情形下，经查属实，可从轻或减轻处分</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl3_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl3_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl3_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl3:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl3_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl3_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl3:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl3_xz_1">否</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          5.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl4_tm">王同学参加学校组织的为期1年的出国交流学习，毕业当年计算机等级考试未达到学士学位授予条件，但他毕业当年考取硕士研究生，可申请授予学位。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl4_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl4_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl4_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl4:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl4_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl4_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl4:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl4_xz_1">否</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          6.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl5_tm">学生不可以申请跨校辅修专业或者修读课程</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl5_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl5_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl5_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl5:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl5_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl5_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl5:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl5_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          7.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl6_tm">休学一般以1年为单位，累计不得超过2年（因创业休学的，可以2年为单位，累计不超过3年）。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl6_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl6_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl6_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl6:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl6_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl6_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl6:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl6_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          8.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl7_tm">国家励志奖学金用于奖励资助全日制普通本科二年级及以上在校生中品学兼优的学生，奖励标准为每生每年5000元。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl7_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl7_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl7_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl7:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl7_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl7_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl7:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl7_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          9.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl8_tm">对于已把违规物品带入考场的考生，应在开考前将物品妥善处理并放置于监考人员指定的位置，交由监考人员对其保管责任，确保其无丢失或损坏</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl8_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl8_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl8_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl8:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl8_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl8_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl8:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl8_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          10.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl9_tm">学生因退学等情况中止学业，其在校学习期间所修课程及已获得学分，应当予以记录。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl9_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl9_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl9_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl9:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl9_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl9_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl9:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl9_xz_1">否</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          11.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl10_tm">生源地信用助学贷款期限原则上按全日制普通本专科学制加10年确定，但最长不超过12年</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl10_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl10_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl10_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl10:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl10_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl10_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl10:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl10_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          12.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl11_tm">教务处负责认定考生违规行为的性质,并以书面形式及时通报学生所在学院和校学生违纪处理委员会</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl11_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl11_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl11_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl11:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl11_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl11_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl11:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl11_xz_1">否</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          13.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl12_tm">被开除学籍的学生，学校不发给学习证明</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl12_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl12_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl12_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl12:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl12_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl12_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl12:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl12_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          14.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl13_tm">学年制收费是按学生修读的学分数计收学费的教育收费管理制度。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl13_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl13_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl13_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl13:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl13_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl13_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl13:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl13_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          15.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl14_tm">课程成绩100分，对应的绩点是5.0。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl14_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl14_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl14_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl14:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl14_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl14_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl14:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl14_xz_1">否</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          16.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl15_tm">属同一学院内部事件，调查取证结束后，学院应及时召开党政联席会议，作出相应处理</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl15_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl15_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl15_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl15:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl15_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl15_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl15:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl15_xz_1">否</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          17.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl16_tm">学期内办理休学的，该学期视为休学。学习超过8周，不予办理休学（因病除外）。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl16_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl16_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl16_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl16:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl16_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl16_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl16:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl16_xz_1">否</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          18.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl17_tm">留级的学生按留入年级的专业培养方案学习并确定毕业资格。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl17_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl17_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl17_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl17:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl17_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl17_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl17:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl17_xz_1">否</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          19.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl18_tm">学生无故缺课累计超过课程学时的1/3，或被抽查旷课4次，或缺交作业(含实验报告)3次者，应取消其参加该门课程的考试资格，并在上课时予以公布。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl18_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl18_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl18_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl18:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl18_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl18_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl18:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl18_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          20.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl19_tm">必修课平均学分绩点＜2.0（民族特招生、高水平运动员＜1.5），应予红色预警。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl19_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl19_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl19_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl19:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl19_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl19_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl19:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl19_xz_1">否</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          21.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl20_tm">非计算机专业学生在校期间参加本校组织的江苏省或全国计算机等级考试，文科类专业学生必须获得二级或二级以上合格证书。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl20_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl20_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl20_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl20:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl20_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl20_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl20:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl20_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          22.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl21_tm">在校学习年限未满一年的，学校发给写实性学习证明，学习年限满一年（含）以上的，发给肄业证书。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl21_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl21_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl21_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl21:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl21_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl21_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl21:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl21_xz_1">否</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          23.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl22_tm">每学期培养方案规定的必修课由教务处统一预置选上，选修课分为第一轮预选和第二轮补选、改选。</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl22_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl22_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl22_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl22:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl22_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl22_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl22:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl22_xz_1">否</label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          24.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl23_tm">在考试过程中旁窥、交头接耳、互打暗号或者手势的行为，属于考试作弊</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl23_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl23_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl23_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl23:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl23_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl23_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl23:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl23_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr><tr>
+				<td>
+      <tr>
+      <td colspan="2" heigth="25" style="font-size: 16px; color:  #0000FF">
+          25.
+          <span id="Mydatalist__ctl0_Mydatalist3__ctl24_tm">对于综合测评成绩没有达到前40%的学生，但达到前50%的，参加校级以上体育比赛（含校级）获得个人项目前三名，集体项目前三名的非体育专业学生可以申请国家励志奖学金</span>(分值:<span id="Mydatalist__ctl0_Mydatalist3__ctl24_marks">1</span>)
+      </td>
+      </tr>
+      <tr>
+      <td>
+          
+      </td>
+      <td>
+         <table id="Mydatalist__ctl0_Mydatalist3__ctl24_xz" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+					<tr>
+						<td><input id="Mydatalist__ctl0_Mydatalist3__ctl24_xz_0" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl24:xz" value="是" checked="checked" /><label for="Mydatalist__ctl0_Mydatalist3__ctl24_xz_0">是</label></td><td><input id="Mydatalist__ctl0_Mydatalist3__ctl24_xz_1" type="radio" name="Mydatalist:_ctl0:Mydatalist3:_ctl24:xz" value="否" /><label for="Mydatalist__ctl0_Mydatalist3__ctl24_xz_1"><span style='background-color:red;color:white'>否</span></label></td>
+					</tr>
+				</table>
+      <br/>
+      </td>
+      </tr>
+    </td>
+			</tr>
+		</table>          
+   <br/>
+   <p align="center"><b><span id="Mydatalist__ctl0_tmlx4"></span></b></p>
+         
+    
+    
+    <br/><br/><br/>
+      <p align="center"><img alt="" id="syb1" onclick="cksyb('1')" border="0" src="/imagesal/syb.gif"/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <img alt="" id="xyb1" onclick="ckxyb('1')" border="0" src="/imagesal/xyb.gif"/>
+      </p>
+      </div>
+      </td>
+      </tr>
+    </td>
+	</tr>
+</table>                    
+   </td>
+   </tr>
+
+   <tr>
+   <td align="center" height="80" id="tj_xs">
+   <input name="tjck" type="button" id="tjck" onclick="tj()" value="提交" size="100" style="height: 25; color: #FF0000; font-family: SimSun; font-size: 10pt; background-color: #FFFFCA" tabindex="100" />
+   
+   <br/><span id="MESSAGE" maintainstate="false" style="font-family: arial;font-size: 13px;color:red"></span>
+   </td>
+  </tr>
+    
+ 
+  
+</table>
+<input name="xzbz" type="hidden" id="xzbz" value="1" />
+<input name="id_d" type="hidden" id="id_d" />
+<input name="km" type="hidden" id="km" value="tm_ks_jy" />
+<input name="bt_d" type="hidden" id="bt_d" />
+<input name="bh_d" type="hidden" id="bh_d" />
+<input name="xh_d" type="hidden" id="xh_d" />
+<input name="tjsj_d" type="hidden" id="tjsj_d" />
+<input name="ylx" type="hidden" id="ylx" value="S" />
+<input name="y_xdm" type="hidden" id="y_xdm" />
+<input name="y_yhdj" type="hidden" id="y_yhdj" />
+<input name="y_stfldm" type="hidden" id="y_stfldm" value="1" />
+<input name="y_cxy" type="hidden" id="y_cxy" value="可选调查" />
+<input name="nd" type="hidden" id="nd" />
+<input name="zxdcdm" type="hidden" id="zxdcdm" />
+<input name="xdm" type="hidden" id="xdm" value="78" />
+<input name="bjhm" type="hidden" id="bjhm" value="21气科类19班" />
+<input name="qx_r" type="hidden" id="qx_r" value="1" />
+<input name="qx_i" type="hidden" id="qx_i" value="1" />
+<input name="qx_u" type="hidden" id="qx_u" value="1" />
+<input name="qx_d" type="hidden" id="qx_d" value="0" />
+<input name="xh" type="hidden" id="xh" value="202183300742" />
+<input name="xm" type="hidden" id="xm" value="吴文星" />
+<input name="st_xq" type="hidden" id="st_xq" value="2021-2022-1" />
+<input name="cw" type="hidden" id="cw" />
+<input name="dds" type="hidden" id="dds" value="24" />
+<input name="dcs" type="hidden" id="dcs" value="56" />
+<input name="marks" type="hidden" id="marks" value="24" />
+<input name="smbz" type="hidden" id="smbz" value="2" />
+<input name="tmfl" type="hidden" id="tmfl" value="南京信息工程大学《学生手册》在线测试" />
+<input name="databcxs" type="hidden" id="databcxs" value="1" />
+<input name="mobbz" type="hidden" id="mobbz" />
+<input name="divs" type="hidden" id="divs" value="1" />
+<input name="xzs" type="hidden" id="xzs" value="8" />
+<input name="wxbz" type="hidden" id="wxbz" />
+</form>
+</body>
+</html>
