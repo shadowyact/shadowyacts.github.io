@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bcd {
+            border-style: solid;
+            border-color: pink;
+            display: block;
+            width: 200px;
+            height: 100px;
+            color: #fff;
+            background-color: gray;
+            text-align: center;
+            text-decoration: none;
+            line-height: 100px;
+            border-width: 10px;
+
+        }
+
+        a:hover {
+            background-color: orange;
+        }
+
+        .asd {
+
+            display: block;
+            font-size: 40px;
+            width: 500px;
+            height: 100px;
+            color: #fff;
+            background-color: skyblue;
+            text-align: center;
+            text-decoration: none;
+            line-height: 80px;
+            float: left;
+        }
+
+        .picture {
+            height: 100px;
+            background-image: url(images/笋1.png);
+            /* background-color: red; */
+
+            background-position: center;
+            /* left: 50%;
+            
+            right: 50%;
+            transform: translate(-50%, -50%); */
+            background-repeat: no-repeat;
+        }
+
+        body {
+            background-image: url(images/sun.jpg);
+            background-attachment: fixed;
+
+            /* background-color: rgb(255,250,230); */
+
+        }
+
+        .word {
+            display: block;
+            background-color: rgb(255, 250, 230);
+            width: 1200px;
+            height: 10000px;
+            padding: 20px;
+            float: left;
+            text-indent: 2em;
+
+        }
+
+        .xx {
+
+            margin-top: 10px;
+            float: left;
+        }
+
+        /* #nav{
+            position: fixed;
+        } */
+        p {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div class="picture"></div>
+        <div id="nav">
+            <a class="asd" href="index.html" target="blank">笋之途</a><a class="asd" onclick="functions()">请勿触摸</a><a
+                class="asd" href="images/1.html">加入我们</a>
+        </div>
+        <div class="xx" id="bcd">
+            <a class="bcd" href="#">产品效益</a>
+            <a class="bcd" href="#">财务预测</a>
+            <a class="bcd" href="#">营销策略</a>
+            <a class="bcd" href="#">产品介绍</a>
+            <a class="bcd" href="#">市场分析</a>
+        </div>
+    </div>
+ 
+    <script>
+        function functions() {
+            alert("说了别点，网页崩了吧")
+            for (var i = 1; i; i++)
+                console.log("说了不要点%d", i)
+        }
+        var qwcm = document.getElementById('qwcm')
+        qwcm.addEventListener('click', function () {
+            alert("说了别点，网页崩了吧")
+            for (var i = 1; i; i++)
+                console.log("说了不要点%d", i)
+        })
+        var bcd = document.getElementsByClassName('bcd')[0]
+        bcd.addEventListener('click', function () {
+            var word = document.getElementsByClassName('word')[0]
+            word.innerHTML = '产品效益：没有'
+        })
+        document.getElementsByTagName
+        var bcd = document.getElementsByClassName('bcd')[1]
+        bcd.addEventListener('click', function () {
+            var word = document.getElementsByClassName('word')[0]
+            word.innerHTML = '财务预测：破产'
+        })
+        var bcd = document.getElementsByClassName('bcd')[2]
+        bcd.addEventListener('click', function () {
+            var word = document.getElementsByClassName('word')[0]
+            var wordf = getElementsByClassName()
+            word.innerHTML = '营销策略：传销'
+        })
+        var bcd = document.getElementsByClassName('bcd')[3]
+        bcd.addEventListener('click', function () {
+            var word = document.getElementsByClassName('word')[0]
+            word.innerHTML = '产品介绍：能吃'
+        })
+        document.querySelector
+        var bcd = document.getElementsByClassName('bcd')[4]
+        bcd.addEventListener('click', function () {
+            var word = document.getElementsByClassName('word')[0]
+            word.innerHTML = '与竹材加工业发展相比，竹笋加工业发展严重滞后。 具体表现为国家对竹笋资源加工利用技术的研发支持力度 微弱 ；竹笋产品单一，主要为鲜笋、水煮笋、笋干及方便竹笋 ；加工企业规模小、初级产品多、科技含量和附加值低；笋源分散；竹笋品质参差不齐；没有自主的竹笋品牌。低迷的市场销量也同样严重影响了竹农种竹育笋积极性，也不利乡村振兴和农民脱贫致富。而在农村，竹笋等产品长期对内销售，基本依赖于大超市采购以及农贸市场的自主销售，这便导致了在面临疫情的冲击之下，传统的销售路线紧缩，市场前景不明朗，例如在桃源当地……（需等调查，结合实例说明）， 与此同时，伴随传统销售路线逐渐变窄的是互联网技术的日新月异，越来越多的人们选择了网上购物，例如最近大热的美团优选等，但我们发现，这类的购物平台往往在大城市受到人们的追捧，却在农村地区鲜有耳闻，究其根本是现如今的农村居民往往对互联网的知识不胜了解，并且对于形形色色的网络购物并不知道如何去辨别，加之对于网络平台各式各样的商品也不知如何挑选，因此，我们决定针对这几点，建立一个关于当地特产竹笋的平台，致力于为当地人提供一个良好的、专一的购物平台，与此同时，对当地的特产进行宣传，推动当地的乡村发展。我国现代竹笋加工产业从上世纪80年代初引进日本的清水笋加工工艺生产开始，经过40余年的快速发展，从竹笋的鲜食、鲜笋加工成清水笋、笋干、多味笋等传统初级加工利用，发展到今天的竹笋源食品精深加工利用，产业规模和技术水平都得到较大的提高，竹笋现已成为我国16 个大宗出口农产品之一。'
+        })
+    </script>
+
+    <div class="word">
+        <p>所以我们决心建立一个平台，一是要让人们了解桃源当地的竹笋。
+            编制一套系统的、图文声并茂的桃源竹笋影像、文字材料，宣扬桃源竹文化、桃源特色食（笋）文化，培育食用竹笋理念，进行推广，借此提高竹笋的销量。二是建立竹笋互联网销售平台。以互联网为平台来进行网上交易，打破传统交易模式中时空的界限，即使在不同的地方、不同的时间，人们只要在互联网平台上就可以完成交易，同时打破商家与购物者的交流障碍，使得供应商可以直接与消费者进行交流，供应商能够更好的了解到消费者个性化需求，也能更好地满足消费者的个性化需求。这样一来，就可以改变传统交易模式的弊端，能够给消费者提供个性化的服务。
+        </p>
+    </div>
+</body>
+
+</html>
