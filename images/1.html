@@ -8,12 +8,25 @@
 </head>
     <style>
                 body {
-            background-image: url(images/sun.jpg);
+            background-image: url(sun.jpg);
             background-attachment: fixed;
 
             /* background-color: rgb(255,250,230); */
 
         }
+        .picture {
+            height: 100px;
+            background-image: url(images/笋1.png);
+            /* background-color: red; */
+
+            background-position: center;
+            /* left: 50%;
+            
+            right: 50%;
+            transform: translate(-50%, -50%); */
+            background-repeat: no-repeat;
+        }
+
         </style>
 <body>
     <h1>您妄图加入我们？</h1>
@@ -26,7 +39,7 @@
         您的性别：<input type="radio" name="sex">人妖<input type="radio" name="sex">应该不是人妖<br>
         您的年龄：0<input type="range">100<br>
         <button id="button">提交</button>
-
+ <div class="picture"></div>
         <script>
             // var q=document.getElementById('q')
             // q.onclick=function(){
